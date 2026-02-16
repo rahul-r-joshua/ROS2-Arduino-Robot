@@ -96,6 +96,16 @@ source install/setup.bash
 
 ----- 
 
+## 5️⃣ Make Python scripts executable 🛠️
+Navigate to the firmware folder:
+```bash
+cd ~/arduino_ws/src/arduino_firmware/arduino_firmware
+
+chmod +x *.py
+```
+
+----- 
+
 
 # 💡 ROS2 + Arduino LED Blink
 
