@@ -10,6 +10,29 @@ It demonstrates how ROS2 can act as the "brain" while Arduino handles the actuat
 
 ---
 
+# 🔄 Bi-Directional Communication Summary
+
+By combining these two nodes, you establish a complete control loop between your high-level ROS2 environment and your low-level hardware.
+
+### 1. ROS2 Transmitter → Arduino Receiver
+* **Direction:** PC to Microcontroller.
+* **Function:** ROS2 acts as the **Controller**.
+* **Use Cases:** * Toggling LEDs.
+    * Moving Servos to specific angles.
+    * Driving DC Motors or Stepper motors.
+    * Activating Relays.
+
+### 2. ROS2 Receiver ← Arduino Transmitter
+* **Direction:** Microcontroller to PC.
+* **Function:** ROS2 acts as the **Monitor/Brain**.
+* **Use Cases:**
+    * Reading Potentiometer or Analog values.
+    * Monitoring Temperature/Humidity sensors.
+    * Getting Ultrasonic distance data.
+    * Receiving Encoder feedback for closed-loop control.
+
+---
+
 ## 📌 Prerequisites
 
 Make sure you have the following installed:
@@ -371,29 +394,6 @@ If you encounter errors while connecting your ROS2 nodes to the Arduino hardware
 | **`SerialException: Port busy`** | The serial port is locked by another process. Ensure the **Arduino IDE Serial Monitor**, Plotter, or any other terminal instance is closed. |
 | **Data looks like gibberish / Strange characters** | This is usually a **Baud Rate mismatch**. Ensure `Serial.begin(115200);` in your Arduino `.ino` file matches the baud rate defined in your ROS2 Python/C++ node. |
 | **`Package 'arduino_firmware' not found`** | Your current terminal environment doesn't know where the workspace is. Run `source install/setup.bash` in every new terminal tab you open. |
-
----
-
-# 🔄 Bi-Directional Communication Summary
-
-By combining these two nodes, you establish a complete control loop between your high-level ROS2 environment and your low-level hardware.
-
-### 1. ROS2 Transmitter → Arduino Receiver
-* **Direction:** PC to Microcontroller.
-* **Function:** ROS2 acts as the **Controller**.
-* **Use Cases:** * Toggling LEDs.
-    * Moving Servos to specific angles.
-    * Driving DC Motors or Stepper motors.
-    * Activating Relays.
-
-### 2. ROS2 Receiver ← Arduino Transmitter
-* **Direction:** Microcontroller to PC.
-* **Function:** ROS2 acts as the **Monitor/Brain**.
-* **Use Cases:**
-    * Reading Potentiometer or Analog values.
-    * Monitoring Temperature/Humidity sensors.
-    * Getting Ultrasonic distance data.
-    * Receiving Encoder feedback for closed-loop control.
 
 ---
 
